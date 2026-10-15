@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "faultbench"
+dynamic = ["version"]
+description = "CAN fault injection with fault-tolerant-time-interval checks, as pytest tests on a virtual bus."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "James Watson" }]
+keywords = ["fault injection", "CAN", "functional safety", "FTTI", "ISO 26262", "IEC 61508", "pytest", "embedded"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Pytest",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Embedded Systems",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = ["python-can>=4.3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/eggheadengineer/faultbench"
+
+[tool.setuptools.dynamic]
+version = { attr = "faultbench.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
